@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+
+    <script>
+        function getMsg() {
+            var dataParams = {"username": "李四", "age": 30};
+            $.post("ajaxDemoWithParms", dataParams, function (data) {
+
+            });
+        }
+    </script>
+</head>
+<body>
+    <span id="msg" style="font-size: 50px; color: lightcyan"></span> <br/>
+    <button id="btn" onclick="getMsg()">获取数据 页面不动</button>
+</body>
+</html>

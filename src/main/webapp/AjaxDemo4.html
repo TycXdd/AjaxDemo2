@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+
+    <script>
+        $(function () {
+           $("#email").blur(function() {
+              var email = $(this).val();
+              $.post("validateEmail", {"email2" : email},function (data) {
+                  if (data != 'success') {
+                      $("#msg").text("此邮箱已注册，请更换一个");
+                      $("#msg").css("color", "red");
+                  } else {
+                      $("#msg").text("此邮箱可用!");
+                      $("#msg").css("color", "green");
+                  }
+              });
+           });
+        });
+    </script>
+</head>
+<body>
+    <h3>欢迎来到邮箱验证环节</h3>
+    <form id="form">
+        邮箱：<input type="text" name="email" id="email "/> <span id="msg"></span> <br/>
+        手机号：<input type="text" name="phonenum" /> <br/>
+    </form>
+</body>
+</html>
